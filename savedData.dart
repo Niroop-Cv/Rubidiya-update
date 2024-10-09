@@ -1,8 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_8/saveControll.dart';
 
 class SavedData extends StatefulWidget {
-  const SavedData({super.key});
+  final String name;
+  final String mobile;
+  final String location;
+  final String age;
+  final String whatsApp;
+  final String date;
+  final String bloodGroup;
+  final String gender;
+
+  const SavedData({
+    super.key,
+    required this.name,
+    required this.mobile,
+    required this.location,
+    required this.age,
+    required this.whatsApp,
+    required this.date,
+    required this.bloodGroup,
+    required this.gender,
+  });
 
   @override
   State<SavedData> createState() => _SavedDataState();
@@ -19,17 +37,24 @@ class _SavedDataState extends State<SavedData> {
         padding: const EdgeInsets.only(top: 250),
         child: Center(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                name.text,
+                widget.name,
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              Text(Mobile.text, style: TextStyle(fontWeight: FontWeight.bold)),
-              Text(Locat.text, style: TextStyle(fontWeight: FontWeight.bold)),
-              Text(Age.text, style: TextStyle(fontWeight: FontWeight.bold)),
-              Text(WhatsApp.text,
+              Text(widget.mobile,
                   style: TextStyle(fontWeight: FontWeight.bold)),
-              Text(Date.text, style: TextStyle(fontWeight: FontWeight.bold)),
+              Text(widget.location,
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+              Text(widget.date, style: TextStyle(fontWeight: FontWeight.bold)),
+              Text(widget.gender,
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+              Text(widget.age, style: TextStyle(fontWeight: FontWeight.bold)),
+              Text(widget.bloodGroup,
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+              Text(widget.whatsApp,
+                  style: TextStyle(fontWeight: FontWeight.bold)),
             ],
           ),
         ),
