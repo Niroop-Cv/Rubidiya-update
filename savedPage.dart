@@ -10,6 +10,14 @@ class SavedPage extends StatefulWidget {
   State<SavedPage> createState() => _SavedPageState();
 }
 
+final SnackBar _snackBar = SnackBar(
+  content: Text(
+    "Saved Successfully...",
+    style: TextStyle(color: Colors.grey),
+  ),
+  duration: Duration(seconds: 1),
+);
+
 class _SavedPageState extends State<SavedPage> {
   String? bloodGroups;
   int? check;
@@ -288,6 +296,11 @@ class _SavedPageState extends State<SavedPage> {
                       padding: EdgeInsets.all(20.0),
                       child: InkWell(
                         onTap: () {
+                          if (_ValidateKey.currentState!.validate()) {
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(_snackBar);
+                          }
+
                           if (_ValidateKey.currentState!.validate()) {
                             String gender = check == 1 ? "Male" : "Female";
                             Navigator.push(
